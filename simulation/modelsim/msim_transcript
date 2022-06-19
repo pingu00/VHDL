@@ -1,0 +1,57 @@
+# Reading C:/altera/13.1/modelsim_ase/tcl/vsim/pref.tcl 
+# do mp_EC2_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/altera/13.1/quartus/bin64/work/mp_ec2.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package LPM_COMPONENTS
+# -- Compiling entity mp_EC2
+# -- Compiling architecture FSMD of mp_EC2
+# 
+# vcom -93 -work work {C:/altera/13.1/quartus/bin64/work/mp2_tb.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity mp2_tb
+# -- Compiling architecture tb of mp2_tb
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneiv_hssi -L cycloneiv_pcie_hip -L cycloneiv -L rtl_work -L work -voptargs="+acc"  mp2_tb
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneiv_hssi -L cycloneiv_pcie_hip -L cycloneiv -L rtl_work -L work -voptargs=\"+acc\" -t 1ps mp2_tb 
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+add wave -position end  sim:/mp2_tb/UUT/state
+add wave -position end  sim:/mp2_tb/UUT/IR
+add wave -position end  sim:/mp2_tb/UUT/PC
+add wave -position end  sim:/mp2_tb/UUT/A
+add wave -position end  sim:/mp2_tb/UUT/memory_address
+add wave -position end  sim:/mp2_tb/UUT/memory_data
+add wave -position end  sim:/mp2_tb/UUT/MemWr
+# Break key hit 
+# Simulation stop requested.
+# Simulation Breakpoint: Simulation stop requested.
+# MACRO ./mp_EC2_run_msim_rtl_vhdl.do PAUSED at line 17
+restart -f
+run -all
+# WARNING: No extended dataflow license exists
+# WARNING: No extended dataflow license exists
+# Break key hit 
+# Simulation stop requested.

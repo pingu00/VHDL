@@ -1,0 +1,23 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/mp.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/cu.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/dp.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/reg.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/mux2.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/increment.vhd}
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/decrement.vhd}
+
+vcom -93 -work work {C:/altera/13.1/quartus/bin64/work6/mp_tb.vhd}
+
+vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneive -L rtl_work -L work -voptargs="+acc"  mp_tb
+
+add wave *
+view structure
+view signals
+run -all

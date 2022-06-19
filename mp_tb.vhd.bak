@@ -1,0 +1,47 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+entity mp_tb is
+end mp_tb;
+
+architecture tb of mp_tb is
+  component mp is 
+     port( 	Clock, Reset: IN STD_LOGIC;
+	Input: IN STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Output: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	Halt: OUT STD_LOGIC
+	mp_IRload, mp_PCload, mp_INmux, mp_Aload, mp_JNZmux: STD_LOGIC;
+	mp_IR: STD_LOGIC_VECTOR(7 DOWNTO 5);
+	mp_Aneq0: STD_LOGIC);
+	end component;
+
+	signal Clock, Reset: IN STD_LOGIC := '0';
+	signal Input: IN STD_LOGIC_VECTOR(7 DOWNTO 0) := '00000100';
+	signal Output: OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	signal Halt: OUT STD_LOGIC; -- outputs
+	
+	SIGNAL mp_IRload, mp_PCload, mp_INmux, mp_Aload, mp_JNZmux: STD_LOGIC;
+	SIGNAL mp_IR: STD_LOGIC_VECTOR(7 DOWNTO 5);
+	SIGNAL mp_Aneq0: STD_LOGIC;
+	
+	 constant period: time := 100 ns;
+begin
+    -- connecting testbench signals
+    U0 : port map (clock => clock, Reset => Reset, Input => Input, Output => Output, halt=> halt); 
+	 U1 : port map (mp_IRoad => mp_IRload, mp_PCload => mp_PCload, mp_INmux => mp_INmux, mp_JNZmux => mp_JNZmux, mp_IR=> mp_IR, mp_Aneq0 => mp_Aneq0); 
+   process 
+      
+    begin
+        clk <= '0';
+        wait for clk_period/2;  --for 50 ns signal is '0'.
+        clk <= '1';
+        wait for clk_period/2;  --for next 50 ns signal is '1'.
+        
+		  reset <= '1';
+
+         wait for period;
+
+        
+    end process;
+end tb ;

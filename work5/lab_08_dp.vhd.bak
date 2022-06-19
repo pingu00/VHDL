@@ -1,0 +1,46 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+ENTITY lab_08_dp IS
+
+ PORT (	 
+		clk : in std_LOGIC;
+		i_Load : in std_LOGIC;
+		clear : : in std_LOGIC;
+		out_sel : : in std_LOGIC;
+		
+		iNOT10 : out std_LOGIC;
+		dp_out : out std_LOGIC_vector(3 downto 0)
+		);
+END lab_08_dp;
+
+
+
+ARCHITECTURE dataflow OF lab_08_dp IS
+
+
+signal data : std_logic_vector(3 DowNTO 0) := "0000";
+
+BEGIN 	
+
+
+	process (clear, clk) is begin
+	if (clear ='1') then
+		 data <= "0000";
+
+	elsif rising_edge(clk) then  
+		if load = '1' then 
+			data <= data + '1';
+		end if;
+
+	end if;
+	end process;
+	iNOT10 <= '0' when (data = "1010") else '1';
+	dp_out <= data when (out_sel = '1') else "ZZZZ";
+end dataflow;
+	
+
+
+	

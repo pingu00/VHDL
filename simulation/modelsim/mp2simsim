@@ -1,0 +1,7 @@
+Clock = 0
+Reset = 0
+enter = 0
+Input = 00001000
+Output = UUUUUUUU
+Halt = U
+period = 100 ns
